@@ -7,6 +7,7 @@ from subprocess import call
 import sys
 
 
+  
 font14 = "-family {Segoe UI} -size 12 -weight bold -slant "  \
             "roman -underline 0 -overstrike 0" 
 LARGEFONT =("Verdana", 35)
@@ -17,8 +18,8 @@ class tkinterApp(tk.Tk):
         stl = ttk.Style()
         stl.configure('C.TLabel',padding=[20,10,20,10])
         stl.map('C.TLabel',
-        foreground = [('pressed','red'),('active','blue'),('focus','green')],
-        background = [('pressed','!disabled','black'),('active','white')],
+        foreground = [('pressed','red'),('active','red')],
+        background = [('pressed','!disabled','black'),('active','black')],
         relief=[('pressed', 'sunken'),('!pressed', 'raised')])
         self._frame = None
         self.switch_frame(HomePage)
@@ -33,20 +34,20 @@ class tkinterApp(tk.Tk):
 class HomePage(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
-        label = ttk.Label(self, text ="Sreelux Hotel", font = LARGEFONT)
-        label.grid(row = 0, column = 1, padx = 10, pady = 10)
+        label = ttk.Label(self, text ="SREELUX HOTEL", font = ("times new roman",40,"bold"),background="black",foreground="red")
+        label.grid(row = 0, column = 1, padx = 30, pady = 30)
         button1 = ttk.Button(self, text ="Check In",style='C.TLabel',
         command = lambda : parent.switch_frame(CheckIn))
-        button1.grid(row = 1, column = 1, padx = 10, pady = 10)
-        button2 = ttk.Button(self, text ="Check Out",
+        button1.grid(row = 1, column = 1, padx = 20, pady = 20)
+        button2 = ttk.Button(self, text ="Check Out",style='C.TLabel',
         command = lambda : parent.switch_frame(CheckOut))
-        button2.grid(row = 2, column = 1, padx = 10, pady = 10)
-        button3 = ttk.Button(self, text ="Guests List",
+        button2.grid(row = 2, column = 1, padx = 20, pady = 20)
+        button3 = ttk.Button(self, text ="Guests List",style='C.TLabel',
         command=lambda: parent.switch_frame(Guests))
-        button3.grid(row = 3, column = 1, padx = 10, pady = 10)
-        button4 = ttk.Button(self, text ="Guest Info",
+        button3.grid(row = 3, column = 1, padx = 20, pady = 20)
+        button4 = ttk.Button(self, text ="Guest Info",style='C.TLabel',
         command = lambda : parent.switch_frame(GuestInfo))
-        button4.grid(row = 4, column = 1, padx = 10, pady = 10)
+        button4.grid(row = 4, column = 1, padx = 20, pady = 20)
           
 class save:
     def __init__(self,NAME_PRO,ADDRESS_PRO,MOBILE_NO_PRO,ROOM_NO_PRO,PRICE_PRO):
@@ -237,7 +238,7 @@ class CheckIn(tk.Frame):
         button0 = ttk.Button(self, text ="Submit",
                             command = chk_entry)
         button0.grid(row = 9, column = 2, padx = 10, pady = 10)
-        button1 = ttk.Button(self, text ="HomePage",
+        button1 = ttk.Button(self, text ="HomePage",style='C.TLabel',
                             command = lambda : parent.switch_frame(HomePage))
         button1.grid(row = 9, column = 0, padx = 10, pady = 10)
   
@@ -282,14 +283,14 @@ class CheckOut(tk.Frame):
         label1.grid(row = 2, column = 0, padx = 10, pady = 10)
         entry1=ttk.Entry(self,textvariable=self.data)
         entry1.grid(row = 2, column = 1, padx = 10, pady = 10)
-        button1 = ttk.Button(self, text ="CheckOut",
+        button1 = ttk.Button(self, text ="CheckOut",style='C.TLabel',
                             command=check_room)
         button1.grid(row = 2, column = 2, padx = 10, pady = 10)
 
-        button2 = ttk.Button(self, text ="HomePage",
+        button2 = ttk.Button(self, text ="HomePage",style='C.TLabel',
                             command = lambda : parent.switch_frame(HomePage))
         button2.grid(row = 3, column = 0, padx = 10, pady = 10)
-        button3 = ttk.Button(self, text ="Guests List",
+        button3 = ttk.Button(self, text ="Guests List",style='C.TLabel',
                             command = lambda : parent.switch_frame(Guests))
         button3.grid(row = 3, column = 2, padx = 10, pady = 10)
 
@@ -324,10 +325,10 @@ class Guests(tk.Frame):
             h=h+str(G[i])+"\n"
             label.configure(text= s)
             label2.configure(text= h)
-        button1 = ttk.Button(self, text ="HomePage",
+        button1 = ttk.Button(self, text ="HomePage",style='C.TLabel',
                                 command =  lambda: parent.switch_frame(HomePage))
         button1.grid(row = 2, column = 0, padx = 10, pady = 10)
-        button2 = ttk.Button(self, text ="CheckOut",
+        button2 = ttk.Button(self, text ="CheckOut",style='C.TLabel',
                                 command =  lambda: parent.switch_frame(CheckOut))
         button2.grid(row = 2, column = 3, padx = 10, pady = 10)   
         
@@ -365,18 +366,18 @@ class GuestInfo(tk.Frame):
         label1.grid(row = 1, column = 0, padx = 10, pady = 10)
         entry1=ttk.Entry(self,textvariable=self.gather)
         entry1.grid(row = 1, column = 1, padx = 10, pady = 10)
-        button1 = ttk.Button(self, text ="Get Info",
+        button1 = ttk.Button(self, text ="Get Info",style='C.TLabel',
                             command=gotinfo)
         button1.grid(row = 1, column = 2, padx = 10, pady = 10)
         self.Text1 = tk.Label(self)
         self.Text1.grid(row = 2, column = 1, padx = 10, pady = 10)
-        button1 = ttk.Button(self, text ="HomePage",
+        button1 = ttk.Button(self, text ="HomePage",style='C.TLabel',
                             command = lambda : parent.switch_frame(HomePage))
         button1.grid(row = 3, column = 0, padx = 10, pady = 10)
         button2 = ttk.Button(self, text ="Guests List",
                                 command =  lambda: parent.switch_frame(Guests))
         button2.grid(row = 2, column = 2, padx = 10, pady = 10)
-        button3 = ttk.Button(self, text ="CheckOut",
+        button3 = ttk.Button(self, text ="CheckOut",style='C.TLabel',
                                 command =  lambda: parent.switch_frame(CheckOut))
         button3.grid(row = 3, column = 2, padx = 10, pady = 10)
 
@@ -416,9 +417,10 @@ class Receipt(tk.Frame):
         '''%(list1[0],list1[1],list1[2],list1[4],list1[3])
         label = ttk.Label(self, text =p)
         label.grid(row = 0, column = 4, padx = 10, pady = 10)
-        button2 = ttk.Button(self, text ="HomePage",
+        button2 = ttk.Button(self, text ="HomePage",style='C.TLabel',
                             command = lambda : parent.switch_frame(HomePage))
         button2.grid(row = 2, column = 1, padx = 10, pady = 10)
   
 app = tkinterApp()
 app.mainloop()
+
