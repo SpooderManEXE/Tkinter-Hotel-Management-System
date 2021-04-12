@@ -235,7 +235,7 @@ class CheckIn(tk.Frame):
         Checkbutton3.grid(row = 7, column = 1, padx = 10, pady = 10)
         Checkbutton4 = ttk.Radiobutton(self, text="SUITE (2000)", variable=self.room, value=4)
         Checkbutton4.grid(row = 7, column = 2, padx = 10, pady = 10)
-        button0 = ttk.Button(self, text ="Submit",
+        button0 = ttk.Button(self, text ="Check In",style='C.TLabel',
                             command = chk_entry)
         button0.grid(row = 9, column = 2, padx = 10, pady = 10)
         button1 = ttk.Button(self, text ="HomePage",style='C.TLabel',
